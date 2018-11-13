@@ -1,0 +1,4 @@
+<button (click)="toggleShow()">TOGGLE DIV</button>
+<div [@slideInOut]="animationState" #slidePanelContainer>
+  <router-outlet name="aux"></router-outlet>
+</div>

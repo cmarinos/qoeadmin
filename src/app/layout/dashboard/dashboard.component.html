@@ -1,0 +1,69 @@
+<div *appAuthority="'OXP_VIEW_ANALYTICS'">
+    <h2 class="text-muted">Dashboard <small>Statistics Overview</small></h2>
+    <div class="row">
+        <div class="col-md-5" *ngIf="totalCustomerChartDataLoaded">
+            <app-process-instance-chart
+                    title="Customer Onboarding Summary"
+                    chartType="doughnut"
+                    description="Glance at the overall performance of your customer onboarding experience."
+                    [chartData]="totalCustomerChartDataSet"
+                    [chartLabels]="totalCustomerChartLabels"
+                    (chartClick)="onTotalTaskCounterChartClick($event)"
+            >
+            </app-process-instance-chart>
+        </div>
+        <div class="col-md-7" *ngIf="barChartDataLoaded">
+            <app-process-instance-chart
+                    [title]="barChartTitle"
+                    chartType="bar"
+                    [description]="barChartDescription"
+                    [chartData]="barChartDataSet"
+                    [chartButtons]="chartButtons"
+                    (buttonClick)="chartButtonClick($event)"
+            >
+            </app-process-instance-chart>
+        </div>
+    </div>
+    <hr>
+
+    <div class="row">
+        <div class="col-md-5">
+            <app-workflow-perocess-statistics></app-workflow-perocess-statistics>
+        </div>
+        <div class="col-md-7" *ngIf="trendChartDataLoaded">
+            <app-process-instance-chart
+                    title="Customer Onboarding Timeline"
+                    chartType="line"
+                    description="Discover trends in onboarding activity."
+                    [chartData]="trendChartDataSet"
+                    [chartLabels]="trendChartLabels"
+            >
+            </app-process-instance-chart>
+        </div>
+    </div>
+    <br/>
+
+    <div class="row">
+        <div class="col-md-4">
+            <app-stat [bgClass]="'primary'" [icon]="'fa-user-circle-o'" [count]="newCustomer" [label]="'New Customers!'" ></app-stat>
+        </div>
+        <div class="col-md-4">
+            <app-stat [bgClass]="'danger'" [icon]="'fa-user-circle'" [count]="prospectsCustomer" [label]="'Prospects'"></app-stat>
+        </div>
+        <div class="col-md-4">
+            <app-stat [bgClass]="'warning'" [icon]="'fa-user-circle'" [count]="abandonedCustomer" [label]="'Abandoned'"></app-stat>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-12">
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <app-workflow-definition-list></app-workflow-definition-list>
+        </div>
+    </div>
+</div>

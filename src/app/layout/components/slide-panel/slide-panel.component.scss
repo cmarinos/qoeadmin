@@ -1,0 +1,16 @@
+#slide-panel-wrapper {
+  height: 100vh;
+  width: 0;
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  background-color: #FFF;
+  overflow-x: hidden;
+  text-align: center;
+  padding: 30px 30px 30px 30px;
+}
+
+#slide-panel-content {
+  height: 100vh;
+  width: 100%
+}
