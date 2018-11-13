@@ -46,24 +46,17 @@ export class SidebarComponent implements OnInit {
 
     private initMenu() {
 
-        const authorities;
-        const menuItems = new Array();
+        const journeysMenuItems = new Array();
+        journeysMenuItems.push(new MenuItem('Flows', '/layout/workflow'));
+        journeysMenuItems.push(new MenuItem('Forms', '/layout/form'));
+        const journeys = new Menu('fa fa-fw fa-cogs', 'Journeys', journeysMenuItems);
+        this.menus.push(journeys);
 
-        menuItems.push(new MenuItem('fa fa-fw fa-dashboard', 'Dashboard', '/layout/dashboard'));
-        if (this.hasRole(authorities, 'QOE_PRODUCT_LIST')) {
-            menuItems.push(new MenuItem('fa fa-cube', 'Product Factory', '/layout/catalog'));
-        }
-        if (this.hasRole(authorities, 'QOE_FORM_LIST')) {
-            menuItems.push(new MenuItem('fa fa-fw fa-wpforms', 'Forms', '/layout/form'));
-        }
 
-        const menu = new Menu('General', menuItems);
-        this.menus.push(menu);
-
-    }
-
-    hasRole(authorities: Authority[], name: string) {
-        return authorities.find(value => value.authority === name) !== undefined;
+        const productMenuItems = new Array();
+        productMenuItems.push(new MenuItem('Products', '/layout/catalog'));
+        const products = new Menu('fa fa-cube', 'Products', productMenuItems);
+        this.menus.push(products);
     }
 
     eventCalled() {
@@ -103,9 +96,9 @@ export class SidebarComponent implements OnInit {
 }
 
 export class Menu {
-    constructor(public name: string, public menuItems: MenuItem[]) {}
+    constructor(public icon: string, public name: string, public menuItems: MenuItem[]) {}
 }
 
 export class MenuItem {
-    constructor(public icon: string, public name: string, public link: string) {}
+    constructor(public name: string, public link: string) {}
 }

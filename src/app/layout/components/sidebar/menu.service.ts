@@ -10,6 +10,6 @@ export class MenuService {
   constructor(private httpClient: HttpClient) { }
 
   public listMenu(): Observable<any> {
-    return this.httpClient.get('/dxp-ui/menu');
+    return this.httpClient.get('/qoe/menu');
   }
 }
