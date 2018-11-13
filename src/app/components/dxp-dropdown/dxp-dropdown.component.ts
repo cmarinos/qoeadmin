@@ -2,7 +2,6 @@ import {
     Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewContainerRef,
     ViewEncapsulation
 } from '@angular/core';
-import {NoRootTagComponent} from "../../commons/common.model";
 
 @Component({
     selector: 'app-dxp-dropdown',

@@ -4,7 +4,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
     selector: 'app-dxp-slider',
-    template: `        
+    template: `
         <div class="dxp-slider-container">
             <div class="slider-values min-value">{{minimum}}</div>
             <input #sliderElement id="amountslider"
